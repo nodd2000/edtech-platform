@@ -1,0 +1,15 @@
+{% extends 'courses/base.html' %}
+
+{% block container %}
+
+    <h3>{{ course.title }}</h3>
+    <p>{{ course.description }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Delete">
+        <a href="{% url 'courses:index' %}">Cancel</a>
+    </form>
+
+{% endblock %}

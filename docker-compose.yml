@@ -1,0 +1,21 @@
+version: "3.5"
+
+services: 
+  front:
+    build:
+      context: .
+      dockerfile: ./Dockerfile_front
+    volumes:
+      - ./edtech_platform_frontend/src:/var/app/src
+      - ./edtech_platform_frontend/public:/var/app/public
+    ports: 
+      - 3000:3000
+  
+  back:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile_back
+    volumes:
+      - ./edtech_platform:/var/app/edtech_platform
+    ports: 
+      - 8000:8000

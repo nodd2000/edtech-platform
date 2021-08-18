@@ -1,0 +1,14 @@
+<div class="courses">
+    <h1>Courses</h1>
+
+    <ul>
+        {% for item in object_list %}
+            <li>
+                <a href="{% url 'courses:course' item.pk %}">
+                    {{ item.title }} ({{ item.created_at|date:"D d M Y" }})
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'courses:course_create' %}">Create New Course</a>
+</div>
