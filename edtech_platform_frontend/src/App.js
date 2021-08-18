@@ -36,7 +36,6 @@ class Courses extends Component {
     else {
       return (
         <div>
-          {/* <h1>HUI</h1> */}
           <ul>
             {courses.map(course => (
               <li key={course.id}>

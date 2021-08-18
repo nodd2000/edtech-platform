@@ -4,7 +4,7 @@ services:
   front:
     build:
       context: .
-      dockerfile: ./Dockerfile_front
+      dockerfile: ./edtech_platform_frontend/Dockerfile
     volumes:
       - ./edtech_platform_frontend/src:/var/app/src
       - ./edtech_platform_frontend/public:/var/app/public
@@ -14,7 +14,7 @@ services:
   back:
     build: 
       context: .
-      dockerfile: ./Dockerfile_back
+      dockerfile: ./edtech_platform/Dockerfile
     volumes:
       - ./edtech_platform:/var/app/edtech_platform
     ports: 
