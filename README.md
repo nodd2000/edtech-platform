@@ -1,8 +1,7 @@
 ###### Запуск в docker:
 `docker-compose build`
+
 `docker-compose up`
-..
-`docker-compose down` 
 
 
 ###### Установка redis:
