@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+}
+
+.course-card {
+    flex-basis: 250px;
+    margin: 20px;
+}
+
+.course-card > img {
+width: 100%;
+height: auto;
+}
+
+.course-card > h3 {
+text-align: center;
+}
+
+.course-card > p {
+font-size: 12px;
+}

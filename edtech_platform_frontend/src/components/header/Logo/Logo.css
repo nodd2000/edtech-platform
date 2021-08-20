@@ -1,0 +1,14 @@
+.logo {
+    font-family: 'Noto Serif', sans-serif;
+    font-size: 60px;
+    background-color: rgb(187, 238,	238);
+    text-decoration: none;
+    color: black;
+    padding: 0 10px;
+}
+
+.logo-container {
+    display: flex;
+    /* padding: 10px; */
+    margin: 10px;
+}

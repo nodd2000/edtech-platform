@@ -1,7 +1,9 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 
 
 class Courses extends Component {
+    
+    
     constructor(props) {
       super(props);
       this.state = {
@@ -9,6 +11,7 @@ class Courses extends Component {
         courses: []
       };
     }
+    
   
     componentDidMount() {
         fetch('http://127.0.0.1:8000/api/courses/')

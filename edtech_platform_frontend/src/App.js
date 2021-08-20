@@ -2,9 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import React, { Component, useState } from 'react';
 import PropTypes from 'prop-types';
-import Footer from './components/footer/footer';
-import Header from './components/header/header';
-import Courses from './components/courses/courses';
+import Footer from './components/footer/Footer';
+import Header from './components/header/Header';
+import Courses from './components/courses/Courses';
 
 class AppComponent extends Component {
   constructor(props) {
