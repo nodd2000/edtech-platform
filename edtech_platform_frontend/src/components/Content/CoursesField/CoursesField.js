@@ -1,7 +1,7 @@
 import React, { Component } from "react"
+import CourseCard from "../CourseCard/CourseCard";
 
-
-class Courses extends Component {
+class CoursesField extends Component {
     
     
     constructor(props) {
@@ -37,17 +37,17 @@ class Courses extends Component {
       else {
         return (
           <div>
-            <ul>
-              {courses.map(course => (
-                <li key={course.id}>
-                  {course.title} -  {course.description}
-                </li>
-              ))}
-            </ul>
+              {
+              courses.map
+              (
+                  course => 
+                  <CourseCard title={course.title} description={course.description}/>
+              )
+              }
           </div>
           ); 
         }
       } 
     }
 
-    export default Courses;
+    export default CoursesField;

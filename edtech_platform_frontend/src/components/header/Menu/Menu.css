@@ -1,0 +1,17 @@
+.menu {
+    padding: 0;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.menu-point {
+    display: inline-block;
+    background-color: #e3e0cd;
+    margin: 0 10px;
+    padding: 0 5px;     
+}
+
+.menu-link {
+    text-decoration: none;
+    color: black;
+}

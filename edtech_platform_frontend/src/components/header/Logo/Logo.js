@@ -1,13 +1,14 @@
 import React, { Component } from "react"
 import "./Logo.css"
 
+const NAME = 'learnO'
 
 const Logo = () => {
   return (
       <div className="logo-container">
-        <div className="logo">
-                learnO
-        </div>
+        <a className="logo" href='#'>
+                { NAME }
+        </a>
       </div>
 
   )

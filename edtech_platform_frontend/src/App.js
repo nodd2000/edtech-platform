@@ -2,9 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import React, { Component, useState } from 'react';
 import PropTypes from 'prop-types';
-import Footer from './components/footer/Footer';
-import Header from './components/header/Header';
-import Courses from './components/courses/Courses';
+
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+import Content from './components/Content/Content';
 
 class AppComponent extends Component {
   constructor(props) {
@@ -13,11 +14,10 @@ class AppComponent extends Component {
   }
 
   render() {
-
     return (
-      <div>
+      <div className='body'>
         <Header/>
-        <Courses/>
+        <Content/>
         <Footer/>
       </div>
     )
@@ -26,11 +26,7 @@ class AppComponent extends Component {
 
 
 function App() {
-  return (
-    <div className="App">
-      <AppComponent/>
-    </div>
-  );
+  return <AppComponent/>
 }
 
 export default App;

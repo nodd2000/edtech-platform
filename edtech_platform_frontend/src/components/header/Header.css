@@ -1,26 +1,7 @@
 .header {
-    width: 100%;
-    /* position: fixed; */
-    height: 70px;
-    top: 0;
-    z-index: 10;
-}
-
-.content-header {
-    width: 100%;
-    height: 100%;
-    background-color:black;
-    /* max-width: 1300px; */
-    margin-left: auto;
-    margin-right: auto;
-    /* padding-left: 55px;
-    padding-right: 55px; */
-}
-
-.limit-header {
+    min-height: 50px;
+    background-color: royalblue;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
-    width: 100%;
 }

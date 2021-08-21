@@ -1,16 +1,14 @@
 import React, { Component } from "react"
 import "./Header.css"
 import Logo from "./Logo/Logo"
+import Menu from "./Menu/Menu"
 
 
 const Header = () => {
   return (
       <header className="header">
-        <div className="content-header">
-          <div className="limit-header">
-            <Logo />
-          </div>
-        </div>
+        <Logo />
+        <Menu />
       </header>
   )
 }

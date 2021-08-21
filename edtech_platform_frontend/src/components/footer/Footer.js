@@ -1,11 +1,11 @@
-import React, { Component } from "react"
-
+import React, { Component } from "react" 
+import "./Footer.css"
 
 function Footer() {
   return (
-      <footer>
-          <h3><font color="#3AC1EF">▍This is my footer element</font></h3>
-      </footer>
+  <footer className="footer">
+        Learn the Origin 2021
+  </footer>
   )
 }
 

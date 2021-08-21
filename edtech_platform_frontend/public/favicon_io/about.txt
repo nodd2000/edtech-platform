@@ -1,6 +1,6 @@
 This favicon was generated using the following font:
 
-- Font Title: Noto Serif
-- Font Author: Copyright 2012 Google Inc. All Rights Reserved.
-- Font Source: http://fonts.gstatic.com/s/notoserif/v11/ga6Iaw1J5X9T9RW6j9bNTFAcaRi_bMQ.ttf
+- Font Title: Work Sans
+- Font Author: Copyright 2019 The Work Sans Project Authors (https://github.com/weiweihuanghuang/Work-Sans)
+- Font Source: http://fonts.gstatic.com/s/worksans/v11/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K0nXNigDp6_cOyA.ttf
 - Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL)
