@@ -1,3 +1,4 @@
 *.pyc_
 **/__pycache__/
 .DS_Store
+edtech_platform/db.sqlite3

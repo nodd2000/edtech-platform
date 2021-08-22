@@ -25,6 +25,7 @@ class Course(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     published_at = models.DateTimeField(null=True, blank=True)
     edited_at = models.DateTimeField(auto_now=True)
+    img_url = models.TextField(default="", blank=True)
 
     teachers = models.ManyToManyField(Teacher, related_name='courses')
     students = models.ManyToManyField(Student, null=True, blank=True, related_name='courses')

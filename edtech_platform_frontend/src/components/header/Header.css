@@ -1,6 +1,6 @@
 .header {
     min-height: 50px;
-    background-color: royalblue;
+    /* background-color: royalblue; */
     display: flex;
     justify-content: space-between;
     align-items: center;

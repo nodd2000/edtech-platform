@@ -1,20 +1,21 @@
 
 .course-card {
-    flex-basis: 250px;
+    min-width: 300px;
+    width: 300px;
     margin: 20px;
-    border: royalblue;
-    background-color: salmon;
+    border-radius: 4px;
+    /* background-color: salmon; */
+    /* background-color: gainsboro; */
+    box-shadow: 0 0 10px rgba(102, 94, 94, 0.4);
+    transition: transform .3s;
 }
 
-.course-card > img {
-width: 100%;
-height: auto;
-}
 
-.course-card > h3 {
-text-align: center;
-}
+.image-container img {
+    width: 100%;
+}   
 
-.course-card > p {
-font-size: 12px;
+.course-card:hover {
+    transform: scale(1.05);
+    transition: transform .3s;
 }

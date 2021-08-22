@@ -5,8 +5,11 @@ import "./CourseCard.css"
 const CourseCard = (props) => {
     return (
         <div className="course-card">
-            <p>Title: {props.title}</p>
-            <p>Description: {props.description}</p>
+            <div className='image-container'>
+                <img src={props.img_url}/>
+            </div>
+            <h3>{props.title}</h3>
+            <h4>{props.description}</h4>
         </div>
     )
 }

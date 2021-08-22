@@ -3,6 +3,10 @@
 
 `docker-compose up`
 
+###### Делаем миграции и добавляем данные в docker:
+`python manage.py migrate`
+
+`python manage.py loaddata dump.json`
 
 ###### Установка redis:
 `apt install redis`

@@ -51,7 +51,7 @@ class CourseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Course
-        fields = 'id', 'title', 'description', 'created_at', 'published_at', 'edited_at', 'teachers', 'students'
+        fields = 'id', 'title', 'description', 'created_at', 'published_at', 'edited_at', 'img_url', 'teachers', 'students'
         view_name = 'courses'
 
     teachers = serializers.HyperlinkedRelatedField(
