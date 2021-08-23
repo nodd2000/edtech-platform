@@ -23,7 +23,7 @@ class UserViewSet(ModelViewSet):
 class TeacherViewSet(ModelViewSet):
     queryset = Teacher.objects.all()
     serializer_class = TeacherSerializer
-    permission_classes = [IsAdminUser | IsAuthenticatedAndReadOnly]
+    # permission_classes = [IsAdminUser | IsAuthenticatedAndReadOnly]
 
     def get_queryset(self):
         qs = super().get_queryset()

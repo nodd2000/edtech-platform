@@ -16,7 +16,7 @@ class UserSerializer(serializers.ModelSerializer):
 class TeacherSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Teacher
-        fields = 'id', 'bio', 'user', 'courses'
+        fields = 'id', 'bio', 'user', 'img_url', 'courses'
         view_name = 'teachers'
         extra_kwargs = {
             'user': {'view_name': 'courses:user-detail'},

@@ -1,5 +1,5 @@
 
-.course-card {
+.teacher-card {
     /* display: flex; */
     min-width: 300px;
     width: 300px;
@@ -13,16 +13,16 @@
 }
 
 
-.course-card-image img {
+.teacher-card-image img {
     width: 100%;
 }   
 
-.course-card:hover {
+.teacher-card:hover {
     transform: scale(1.03);
     transition: transform .3s;
 }
 
-.course-card-title {
+.teacher-card-title {
     /* display: flex; */
     /* height: 100%; */
     background-color:gold;

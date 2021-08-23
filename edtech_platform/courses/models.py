@@ -6,6 +6,7 @@ class Teacher(models.Model):
     user = models.OneToOneField(get_user_model(), on_delete=models.PROTECT)
 
     bio = models.TextField(default="", blank=True)
+    img_url = models.TextField(default="", blank=True)
 
     def __str__(self):
         return f"Teacher <{self.user}>"

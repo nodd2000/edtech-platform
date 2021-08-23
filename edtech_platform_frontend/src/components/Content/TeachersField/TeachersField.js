@@ -1,21 +1,21 @@
 import React, { Component } from "react"
-import CourseCard from "../CourseCard/CourseCard";
+import TeacherCard from "../TeacherCard/TeacherCard";
 import "../Content.css"
 
-class CoursesField extends Component {
+class TeachersField extends Component {
     
     
     constructor(props) {
       super(props);
       this.state = {
         isLoaded: false,
-        courses: []
+        teachers: []
       };
     }
     
   
     componentDidMount() {
-        fetch('http://127.0.0.1:8000/api/courses/')
+        fetch('http://127.0.0.1:8000/api/teachers/')
         .then((response) => {
           return response.json();
         })
@@ -23,14 +23,15 @@ class CoursesField extends Component {
           this.setState(
             {
               isLoaded: true,
-              courses: data
+              teachers: data
             }
           )
+        
       });
     }
   
     render() {
-      const { courses, isLoaded } = this.state;
+      const { teachers, isLoaded } = this.state;
       
       if (!isLoaded) {
         return <div>Loading..</div>;
@@ -38,13 +39,10 @@ class CoursesField extends Component {
       else {
         return (
           <div className='cards-field'>
-            <h1>Courses</h1>
+            <h1>Teachers</h1>
             <div className='cards-field-scroll'>
-              { courses.map
-              (course => <CourseCard 
-                title={course.title} 
-                description={course.description}
-                img_url={course.img_url}/>) }
+              {teachers.map
+              (teacher => <TeacherCard name={teacher.id} bio={teacher.bio} img_url={teacher.img_url}/>)}
             </div>
           </div>
           ); 
@@ -52,4 +50,4 @@ class CoursesField extends Component {
       } 
     }
 
-    export default CoursesField;
+    export default TeachersField;

@@ -5,11 +5,14 @@ import "./CourseCard.css"
 const CourseCard = (props) => {
     return (
         <div className="course-card">
-            <div className='image-container'>
+            <a className="course-card-image" href="#">
                 <img src={props.img_url}/>
+            </a>
+            <div className="course-card-title">
+                <h3>{props.title}</h3>
+                <h4>{props.description}</h4>
             </div>
-            <h3>{props.title}</h3>
-            <h4>{props.description}</h4>
+
         </div>
     )
 }
