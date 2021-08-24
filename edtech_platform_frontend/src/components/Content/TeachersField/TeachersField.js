@@ -39,7 +39,10 @@ class TeachersField extends Component {
       else {
         return (
           <div className='cards-field'>
-            <h1>Teachers</h1>
+            <div className='cards-field-title'>
+              <h1>Teachers</h1>
+            </div>
+            
             <div className='cards-field-scroll'>
               {teachers.map
               (teacher => <TeacherCard name={teacher.id} bio={teacher.bio} img_url={teacher.img_url}/>)}

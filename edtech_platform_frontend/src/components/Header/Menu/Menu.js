@@ -6,7 +6,7 @@ const Menu = () => {
   return (
       <div className="menu">
         <div className="menu-point">
-            <a className="menu-link" href="#">log In</a>
+            <a className="menu-link base-style" href="#">log In</a>
         </div>
       </div>
 

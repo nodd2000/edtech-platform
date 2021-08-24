@@ -38,7 +38,10 @@ class CoursesField extends Component {
       else {
         return (
           <div className='cards-field'>
-            <h1>Courses</h1>
+            <div className='cards-field-title'>
+              <h1>Courses</h1>
+            </div>
+            
             <div className='cards-field-scroll'>
               { courses.map
               (course => <CourseCard 

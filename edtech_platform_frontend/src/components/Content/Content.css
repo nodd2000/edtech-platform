@@ -9,8 +9,8 @@
     border-style: solid;
     border-width: 1px 0px 1px;
     border-color:silver;
-    padding: 0px 30px 0px;
-    overflow-x: auto;  
+    /* padding: 0px 30px 0px; */
+    /* overflow-x: auto;   */
 }
 
 
@@ -18,10 +18,14 @@
     display: flex;
     overflow-x: auto;   
     min-height: 400px;
-    scrollbar-width: none;
+    /* scrollbar-width: none; */
 }
 
+.cards-field-title {
+    margin-left: 20px;
 
-.cards-field::-webkit-scrollbar {
+}
+
+/* .cards-field::-webkit-scrollbar {
     display: none;
-  }
+  } */
