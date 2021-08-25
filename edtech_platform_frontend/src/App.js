@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { Component, useState } from 'react';
 import PropTypes from 'prop-types';
