@@ -1,15 +1,15 @@
-import React, { Component } from "react"
+import React from "react"
+import { Link } from "react-router-dom";
 import "./Menu.css"
 
 
 const Menu = () => {
   return (
-      <div className="menu">
-        <div className="menu-point">
-            <a className="menu-link base-style" href="#">log In</a>
-        </div>
+    <div className="menu">
+      <div className="menu-point">
+          <Link className="menu-link base-style" to="/login">log In</Link>
       </div>
-
+    </div>
   )
 }
 
