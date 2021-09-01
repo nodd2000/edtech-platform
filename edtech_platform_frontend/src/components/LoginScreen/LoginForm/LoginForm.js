@@ -1,48 +1,45 @@
-import React from "react"
+import React, {useState} from 'react';
 
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import {useAuth} from '/var/app/src/components/useAuth.js'
 
 import "./LoginForm.css"
+import "../LoginScreen.css"
 
+const LoginForm = () => {
 
-class LoginForm extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-          username: '',
-          password: ''
-        };
-      this.handleChangeUsername = this.handleChangeUsername.bind(this);
-      this.handleChangePassword = this.handleChangePassword.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-  
-    handleChangeUsername(event) {    this.setState({username: event.target.value});  }
+  let auth = useAuth();
 
-    handleChangePassword(event) {    this.setState({password: event.target.value});  }
+  const [inputField , setInputField] = useState({
+    username: '',
+    password: ''
+    })
 
-    handleSubmit(event) {
-      alert('Отправленное имя: ' + this.state.username + this.state.password);
-      event.preventDefault();
-    }
-  
-    render() {
-      return (
-        <div> 
-            <form className='login-form'  onSubmit={this.handleSubmit}>
-                <h3 class="div">Please sign in</h3>
-                <input className='div' type="text" placeholder='Username' onChange={this.handleChangeUsername} />
-                <input className='div' type="password" placeholder='Password' onChange={this.handleChangePassword} />
-                <input className='div' type="submit" value="Sign In" />
-                <p class="div"> New User? <Link to="/register">Click to Register!</Link></p>
-            </form>
-
-            
-
-        </div>
-      );
-    }
+  const inputsHandler = (e) => {
+      setInputField( { ...inputField, [e.target.name]: e.target.value} )
   }
 
+  const submitButton = () =>{
+      auth.signin(inputField.username, inputField.password)
+  }
+
+
+  if (auth.user) {
+    return <Redirect to='/' />
+  }
+
+  return (
+    <div className='login-screen'>
+      
+      <div className='login-form'>
+          <h3 class="div">Please sign in</h3>
+          <input className='div' name='username' type="text" placeholder='Username' onChange={inputsHandler} />
+          <input className='div' type="password" name="password" placeholder='Password' onChange={inputsHandler} />
+          <button className='div' onClick={submitButton}>Sign In</button>
+          <p class="div"> New User? <Link to="/register">Click to Register!</Link></p>
+      </div>
+    </div>
+  );
+}
 
 export default LoginForm;
