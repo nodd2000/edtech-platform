@@ -17,7 +17,7 @@ class CustomAPIRootView(APIRootView):
 class UserViewSet(ModelViewSet):
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
-    permission_classes = [IsAdminUser | IsAuthenticatedAndReadOnly]
+    # permission_classes = [IsAdminUser | IsAuthenticatedAndReadOnly]
 
 
 class TeacherViewSet(ModelViewSet):

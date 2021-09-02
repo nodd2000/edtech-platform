@@ -49,8 +49,9 @@ function useProvideAuth() {
   }
 
   const signup = (username, password) => {
-    setUser({'username': username, 'password': password});
-    return user;
+    axios.post('http://127.0.0.1:8000/api/users/', {username: username, password: password})
+    .then(response => { alert('User created. Please login in') })
+    .catch(error => { alert('A user with that username already exists') })
   };
 
   const signout = () => {

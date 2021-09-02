@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 
-import { Link } from "react-router-dom";
+import { Link, Redirect} from "react-router-dom";
 import "../LoginScreen.css"
+import {useAuth} from '/var/app/src/components/useAuth.js'
 
 
 
 const RegisterForm = () => {
+  let auth = useAuth();
 
   const [inputField , setInputField] = useState({
     username: '',
@@ -18,7 +20,12 @@ const RegisterForm = () => {
   }
 
   const submitButton = () =>{
-      alert(inputField.username + '  /' + inputField.password)
+      if (inputField.password != inputField.repeat_password) {
+        alert('Passwords are not equal!')
+        return false;
+      }
+      auth.signup(inputField.username, inputField.password)
+
   }
 
   return (
