@@ -1,11 +1,14 @@
-
+.body {
+  margin: 0;
+  height: 100vh;
+  display: flex; 
+  flex-direction: column; 
+}
 
 .login-screen {
-
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   background-color: #e9ecef;
-
 }

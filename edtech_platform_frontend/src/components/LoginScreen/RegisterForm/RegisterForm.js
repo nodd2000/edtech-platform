@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 
 import { Link, Redirect} from "react-router-dom";
-import "../LoginScreen.css"
-import {useAuth} from '/var/app/src/components/useAuth.js'
+import "../LoginForm/LoginForm"
+import {useAuth} from '../../../auth/useAuth.js'
 
 
 
@@ -29,7 +29,6 @@ const RegisterForm = () => {
   }
 
   return (
-    <div className='login-screen'>
       <div className='login-form'>
           <h3 class="div">Register</h3>
           <input className='div' type="text" name='username'  placeholder='Username' onChange={inputsHandler} />
@@ -38,7 +37,6 @@ const RegisterForm = () => {
           <button className='div' onClick={submitButton}>Register</button>
           <p class="div"> Have an account? <Link to="/login">Click to Login</Link></p>
       </div>
-    </div>
   );
 }
 

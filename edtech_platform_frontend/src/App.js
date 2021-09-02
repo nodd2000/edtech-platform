@@ -1,17 +1,17 @@
-import './App.css';
-import PropTypes from 'prop-types';
 
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
-import Content from './components/Content/Content';
+import { BrowserRouter as Router } from "react-router-dom";
+import {ProvideAuth} from "./auth/useAuth"
+import AppRouter from './router/AppRouter';
+
 
 function App() {
+
   return (
-    <div className='body'>
-      <Header/>
-      <Content/>
-      <Footer/>
-    </div>
+    <ProvideAuth>
+      <Router>
+        <AppRouter />
+      </Router>
+    </ProvideAuth>
   )
 }
 

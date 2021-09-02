@@ -1,6 +1,6 @@
 import "./Menu.css"
 import React from "react";
-import {useAuth} from '/var/app/src/components/useAuth.js'
+import {useAuth} from '../../../auth/useAuth'
 import { Link } from "react-router-dom";
 
 

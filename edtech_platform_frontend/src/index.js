@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Main from './Main.js';
+import App from './App.js';
 import reportWebVitals from './reportWebVitals';
 
 
 
 ReactDOM.render(
   <>    
-    <Main />
+    <App />
   </>,
   document.getElementById('root')
 );

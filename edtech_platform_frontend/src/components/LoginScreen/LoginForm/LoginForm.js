@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 
 import { Link, Redirect } from "react-router-dom";
-import {useAuth} from '/var/app/src/components/useAuth.js'
+import {useAuth} from '../../../auth/useAuth.js'
 
 import "./LoginForm.css"
-import "../LoginScreen.css"
 
 const LoginForm = () => {
 
@@ -29,8 +28,6 @@ const LoginForm = () => {
   }
 
   return (
-    <div className='login-screen'>
-      
       <div className='login-form'>
           <h3 class="div">Please sign in</h3>
           <input className='div' name='username' type="text" placeholder='Username' onChange={inputsHandler} />
@@ -38,7 +35,6 @@ const LoginForm = () => {
           <button className='div' onClick={submitButton}>Sign In</button>
           <p class="div"> New User? <Link to="/register">Click to Register!</Link></p>
       </div>
-    </div>
   );
 }
 
