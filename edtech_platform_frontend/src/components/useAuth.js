@@ -1,6 +1,6 @@
-  // Hook (use-auth.js)
-import React, { useState, useContext, createContext } from "react";
+import React, { useState, useContext, createContext, useEffect} from "react";
 import axios from 'axios'
+
 const authContext = createContext();
 
 // Provider component that wraps your app and makes auth object ...
@@ -17,8 +17,6 @@ export const useAuth = () => {
 };
 
 
-
-
 // Provider hook that creates auth object and handles state
 function useProvideAuth() {
   const [user, setUser] = useState(null);
@@ -26,7 +24,6 @@ function useProvideAuth() {
   const signin = (username, password) => {
     axios.post('http://127.0.0.1:8000/auth-jwt/token/', {username: username, password: password})
     .then(response => {
-      console.log(response)
       saveTokens({
         'username': username,
         'access': response.data['access'],
@@ -51,17 +48,6 @@ function useProvideAuth() {
     localStorage.removeItem('username')
   }
 
-  const getDataFromLocalStorage = () => {
-    const data = {
-      username: localStorage.getItem('username'),
-      access: localStorage.getItem('access'),
-      refresh: localStorage.getItem('refresh')
-    }
-
-    setUser(data)
-    return data
-  }
-
   const signup = (username, password) => {
     setUser({'username': username, 'password': password});
     return user;
@@ -70,8 +56,22 @@ function useProvideAuth() {
   const signout = () => {
     setUser(null);
     removeTokens()
-    return user;
   };
+
+  const getDataFromLocalStorage = () => {
+    const data = 
+    {
+      username: localStorage.getItem('username'),
+      access: localStorage.getItem('access'),
+      refresh: localStorage.getItem('refresh')
+    }
+    return data.access === null ? null : data
+  }
+
+  useEffect(() => {
+    const data = getDataFromLocalStorage()
+    setUser(data)
+  }, []);
 
   return {
     user,
