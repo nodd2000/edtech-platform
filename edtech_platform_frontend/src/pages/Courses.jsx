@@ -2,20 +2,15 @@ import '../styles/App.css';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import CoursesField from '../components/CoursesField/CoursesField';
-import TeachersField from '../components/TeachersField/TeachersField';
 
-
-function Main() {
+function Courses() {
   return (
     <div className='body'>
       <Header/>
-      <div className="content">
-          <CoursesField />
-          <TeachersField />
-      </div>
+      <CoursesField/>
       <Footer/>
     </div>
   )
 }
 
-export default Main;
+export default Courses;

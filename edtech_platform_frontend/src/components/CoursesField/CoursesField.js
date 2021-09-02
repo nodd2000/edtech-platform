@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import CourseCard from "../CourseCard/CourseCard";
-import "../Content.css"
-
+import '../../styles/App.css';
 
 function CoursesField() {
   const [courses, setCourses] = useState({

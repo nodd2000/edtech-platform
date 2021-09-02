@@ -12,3 +12,36 @@
   height: 100vh;
   background-color: #e9ecef;
 }
+
+
+.content {
+  display: inline;
+}
+
+.cards-field {
+  display:inline-block;
+  background-color:gainsboro;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px 0px 1px;
+  border-color:silver;
+  /* padding: 0px 30px 0px; */
+  /* overflow-x: auto;   */
+}
+
+
+.cards-field-scroll {
+  display: flex;
+  overflow-x: auto;   
+  min-height: 400px;
+  /* scrollbar-width: none; */
+}
+
+.cards-field-title {
+  margin-left: 20px;
+
+}
+
+/* .cards-field::-webkit-scrollbar {
+  display: none;
+} */
