@@ -20,8 +20,7 @@ const Menu = () => {
 
   return (
     <div className="menu">
-      { auth.user ? <div className="menu-point"> {auth.user.username}</div> : <div></div> }
-
+      { auth.user ? <a className="menu-point" href='/self'> {auth.user.username}</a> : <div></div> }
       <div className="menu-point">
           < AuthButton />
       </div>

@@ -61,3 +61,19 @@
 .div {
   display: block;
 }
+
+.button-zone {
+  display: flex;
+  justify-content: center;
+}
+
+.role-button {
+  display: block;
+  font-size: 30px;
+  width: auto;
+  margin: 0 10px 0;
+}
+
+.emoji {
+  font-size: 200px;
+}

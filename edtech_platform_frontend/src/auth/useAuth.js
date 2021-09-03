@@ -64,7 +64,7 @@ function useProvideAuth() {
     {
       username: localStorage.getItem('username'),
       access: localStorage.getItem('access'),
-      refresh: localStorage.getItem('refresh')
+      refresh: localStorage.getItem('refresh'),
     }
     return data.access === null ? null : data
   }
