@@ -33,7 +33,7 @@ function TeachersField() {
         
         <div className='cards-field-scroll'>
           {teachers.teachers.map
-          (teacher => <TeacherCard name={teacher.id} bio={teacher.bio} img_url={teacher.img_url}/>)}
+          (teacher => <TeacherCard key={teacher.id} id={teacher.id} bio={teacher.bio} img_url={teacher.img_url}/>)}
         </div>
       </div>
       ); 

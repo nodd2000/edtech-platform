@@ -33,7 +33,7 @@ function CoursesField() {
         
         <div className='cards-field-scroll'>
           { courses.courses.map
-          (course => <CourseCard title={course.title} description={course.description} img_url={course.img_url}/>) }
+          (course => <CourseCard key={course.id} id={course.id} title={course.title} description={course.description} img_url={course.img_url}/>) }
         </div>
       </div>
       ); 

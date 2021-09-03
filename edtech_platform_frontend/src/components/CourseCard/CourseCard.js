@@ -3,9 +3,10 @@ import "./CourseCard.css"
 
 
 const CourseCard = (props) => {
+
     return (
         <div className="course-card">
-            <a className="course-card-image" href="#">
+            <a className="course-card-image" href={`/courses/${props.id}`}>
                 <img src={props.img_url}/>
             </a>
             <div className="course-card-title">

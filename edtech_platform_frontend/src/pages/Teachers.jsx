@@ -3,7 +3,7 @@ import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import TeachersField from '../components/TeachersField/TeachersField';
 
-function Main() {
+function Teachers() {
   return (
     <div className='body'>
       <Header/>
@@ -13,4 +13,4 @@ function Main() {
   )
 }
 
-export default Main;
+export default Teachers;

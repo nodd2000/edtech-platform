@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-import RegisterForm from '../components/LoginScreen/RegisterForm/RegisterForm'
+import RegisterForm from '../components/RegisterForm/RegisterForm'
 
 import "../styles/App.css"
 

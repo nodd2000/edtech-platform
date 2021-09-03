@@ -45,3 +45,19 @@
 /* .cards-field::-webkit-scrollbar {
   display: none;
 } */
+
+
+
+
+.login-form {
+  width: 100%;
+  width: 210px;
+  padding: 15px;
+  margin: auto;
+  background-color: white;
+  border:1px solid #dee2e6
+}
+
+.div {
+  display: block;
+}

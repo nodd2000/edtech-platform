@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 
-import { Link, Redirect} from "react-router-dom";
-import "../LoginForm/LoginForm"
-import {useAuth} from '../../../auth/useAuth.js'
+import { Link } from "react-router-dom";
+import {useAuth} from '../../auth/useAuth.js'
 
+import "../../styles/App.css"
 
 
 const RegisterForm = () => {
@@ -40,9 +40,6 @@ const RegisterForm = () => {
   );
 }
 
-
-
-            
 
 
 export default RegisterForm;
