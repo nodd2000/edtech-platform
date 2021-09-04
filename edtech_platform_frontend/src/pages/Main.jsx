@@ -1,8 +1,8 @@
 import '../styles/App.css';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
-import CoursesField from '../components/CoursesField/CoursesField';
-import TeachersField from '../components/TeachersField/TeachersField';
+import CoursesField from '../components/CoursesField';
+import TeachersField from '../components/TeachersField';
 
 
 function Main() {

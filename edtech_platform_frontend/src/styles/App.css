@@ -77,3 +77,66 @@
 .emoji {
   font-size: 200px;
 }
+
+
+
+
+.teacher-card {
+  /* display: flex; */
+  min-width: 300px;
+  width: 300px;
+  margin: 20px;
+  /* border-radius: 6px; */
+  /* background-color: salmon; */
+  /* background-color: gainsboro; */
+  box-shadow: 0 0 10px rgba(102, 94, 94, 0.4);
+  transition: transform .3s;
+  background-color: white;
+}
+
+
+.teacher-card-image img {
+  width: 100%;
+}   
+
+.teacher-card:hover {
+  transform: scale(1.03);
+  transition: transform .3s;
+}
+
+.teacher-card-title {
+  /* display: flex; */
+  /* height: 100%; */
+  background-color:rgb(238, 235, 235);
+}
+
+
+
+.course-card {
+  /* display: flex; */
+  min-width: 300px;
+  width: 300px;
+  margin: 20px;
+  /* border-radius: 6px; */
+  /* background-color: salmon; */
+  /* background-color: gainsboro; */
+  box-shadow: 0 0 10px rgba(102, 94, 94, 0.4);
+  transition: transform .3s;
+  background-color: white;
+}
+
+
+.course-card-image img {
+  width: 100%;
+}   
+
+.course-card:hover {
+  transform: scale(1.03);
+  transition: transform .3s;
+}
+
+.course-card-title {
+  /* display: flex; */
+  /* height: 100%; */
+  background-color:rgb(238, 235, 235);
+}

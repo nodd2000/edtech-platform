@@ -70,8 +70,19 @@ function useProvideAuth() {
   }
 
   useEffect(() => {
+
     const data = getDataFromLocalStorage()
     setUser(data)
+
+    const unsubscribe = ((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+
+    return () => unsubscribe();
   }, []);
 
   return {

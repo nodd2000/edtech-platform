@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./CourseCard.css"
+import "../styles/App.css"
 
 
 const CourseCard = (props) => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
-import TeacherCard from "../TeacherCard/TeacherCard";
-import '../../styles/App.css';
+import TeacherCard from "./TeacherCard";
+import '../styles/App.css';
 
 
 function TeachersField() {

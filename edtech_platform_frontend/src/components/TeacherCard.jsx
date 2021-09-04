@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "./TeacherCard.css"
+import '../styles/App.css';
+
 
 
 const TeacherCard = (props) => {

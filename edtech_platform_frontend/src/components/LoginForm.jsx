@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 
 import { Link, Redirect } from "react-router-dom";
-import {useAuth} from '../../auth/useAuth.js'
+import {useAuth} from '../auth/useAuth.js'
 
-import "../../styles/App.css"
+import "../styles/App.css"
 
 
 const LoginForm = () => {

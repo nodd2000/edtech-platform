@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import '../styles/App.css';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
-import CourseCard from '../components/CourseCard/CourseCard';
+import CourseCard from '../components/CourseCard';
 
 
 const Course = () => {

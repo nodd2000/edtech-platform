@@ -1,7 +1,7 @@
 import '../styles/App.css';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
-import CoursesField from '../components/CoursesField/CoursesField';
+import CoursesField from '../components/CoursesField';
 
 function Courses() {
   return (
