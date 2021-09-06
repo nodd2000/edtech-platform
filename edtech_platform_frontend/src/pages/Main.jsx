@@ -1,8 +1,8 @@
-import '../styles/App.css';
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
-import CoursesField from '../components/CoursesField';
-import TeachersField from '../components/TeachersField';
+import '../styles/App.css'
+import Footer from '../components/Footer/Footer'
+import Header from '../components/Header/Header'
+import CoursesField from '../components/CoursesField'
+import TeachersField from '../components/TeachersField'
 
 
 function Main() {
@@ -18,4 +18,4 @@ function Main() {
   )
 }
 
-export default Main;
+export default Main

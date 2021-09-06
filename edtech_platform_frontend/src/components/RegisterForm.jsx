@@ -1,45 +1,69 @@
-import React, {useState} from 'react';
+import React from 'react'
 
-import { Link } from "react-router-dom";
-import {useAuth} from '../auth/useAuth.js'
+import { Link } from "react-router-dom"
+import { useAuth } from '../auth/useAuth.jsx'
+import { useInput } from '../hooks/useInput.jsx'
 
 import "../styles/App.css"
 
 
 const RegisterForm = () => {
-  let auth = useAuth();
 
-  const [inputField , setInputField] = useState({
-    username: '',
-    password: '',
-    repeat_password: ''
-    })
+  const { signUp} = useAuth()
 
-  const inputsHandler = (e) => {
-      setInputField( { ...inputField, [e.target.name]: e.target.value} )
-  }
+  const [usernameProps, resetUsername] = useInput('')
+  const [passwordProps, resetPassword] = useInput('')
+  const [password2Props, resetPassword2] = useInput('')
 
-  const submitButton = () =>{
-      if (inputField.password != inputField.repeat_password) {
-        alert('Passwords are not equal!')
-        return false;
-      }
-      auth.signup(inputField.username, inputField.password)
 
+  const submit = event => {
+    event.preventDefault()
+
+    if (passwordProps.value != password2Props.value) {
+      alert('Passwords are not equal!')
+      return false
+    }
+
+    signUp(usernameProps.value, passwordProps.value)
+    resetUsername()
+    resetPassword()
+    resetPassword2()
   }
 
   return (
-      <div className='login-form'>
+      <form className='login-form' onSubmit={submit}>
           <h3 class="div">Register</h3>
-          <input className='div' type="text" name='username'  placeholder='Username' onChange={inputsHandler} />
-          <input className='div' type="password" name="password" placeholder='Password' onChange={inputsHandler} />
-          <input className='div' type="password" name="repeat_password" placeholder='Repeat password' onChange={inputsHandler} />
-          <button className='div' onClick={submitButton}>Register</button>
+
+          <input 
+          className='div'
+          { ...usernameProps }
+          type="text"
+          name='username'
+          placeholder='Username'
+          required/>
+
+          <input 
+          className='div'
+          { ...passwordProps }
+          type="password" 
+          name="password" 
+          placeholder='Password' 
+          required/>
+          
+          <input 
+          className='div' 
+          { ...password2Props }
+          type="password" 
+          name="repeat_password" 
+          placeholder='Repeat password'
+          required/>
+          
+          <button className='div'>Register</button>
           <p class="div"> Have an account? <Link to="/login">Click to Login</Link></p>
-      </div>
-  );
+      </form>
+  )
 }
 
 
 
-export default RegisterForm;
+export default RegisterForm

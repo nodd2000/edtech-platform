@@ -1,27 +1,15 @@
-import React, { useState, useContext, createContext, useEffect} from "react";
+import React, { useState, useContext, createContext, useEffect} from "react"
 import axios from 'axios'
 
-const authContext = createContext();
+const authContext = createContext()
 
-// Provider component that wraps your app and makes auth object ...
-// ... available to any child component that calls useAuth().
-export function ProvideAuth({ children }) {
-  const auth = useProvideAuth();
-  return <authContext.Provider value={auth}>{children}</authContext.Provider>;
-}
-
-// Hook for child components to get the auth object ...
-// ... and re-render when it changes.
-export const useAuth = () => {
-  return useContext(authContext);
-};
+export const useAuth = () => useContext(authContext)
 
 
-// Provider hook that creates auth object and handles state
-function useProvideAuth() {
+export function AuthProvider ({ children }) {
   const [user, setUser] = useState(null);
-  
-  const signin = (username, password) => {
+
+  const signIn = (username, password) => {
     axios.post('http://127.0.0.1:8000/auth-jwt/token/', {username: username, password: password})
     .then(response => {
       saveTokens({
@@ -35,7 +23,7 @@ function useProvideAuth() {
         'refresh': response.data['refresh']});
     }).catch(error => alert('wrong login or password'))
   };
-  
+
   const saveTokens = (data) => {
     localStorage.setItem('access', data.access)
     localStorage.setItem('refresh', data.refresh)
@@ -48,13 +36,13 @@ function useProvideAuth() {
     localStorage.removeItem('username')
   }
 
-  const signup = (username, password) => {
+  const signUp = (username, password) => {
     axios.post('http://127.0.0.1:8000/api/users/', {username: username, password: password})
     .then(response => { alert('User created. Please login in') })
     .catch(error => { alert('A user with that username already exists') })
   };
 
-  const signout = () => {
+  const signOut = () => {
     setUser(null);
     removeTokens()
   };
@@ -76,19 +64,17 @@ function useProvideAuth() {
 
     const unsubscribe = ((user) => {
       if (user) {
-        setUser(user);
+        setUser(user)
       } else {
-        setUser(null);
+        setUser(null)
       }
     });
+    return () => unsubscribe() 
+  }, [])
 
-    return () => unsubscribe();
-  }, []);
-
-  return {
-    user,
-    signin,
-    signup,
-    signout,
-  };
+  return (
+    <authContext.Provider value={{ user, setUser, signIn, signUp, signOut }}>
+      { children }
+    </authContext.Provider>
+  )
 }

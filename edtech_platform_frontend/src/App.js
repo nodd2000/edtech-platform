@@ -1,17 +1,17 @@
 
 import { BrowserRouter as Router } from "react-router-dom";
-import {ProvideAuth} from "./auth/useAuth"
+import {AuthProvider} from "./auth/useAuth"
 import AppRouter from './router/AppRouter';
 
 
 function App() {
 
   return (
-    <ProvideAuth>
+    <AuthProvider>
       <Router>
         <AppRouter />
       </Router>
-    </ProvideAuth>
+    </AuthProvider>
   )
 }
 

@@ -1,12 +1,12 @@
 
-import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom"
 
-import '../styles/App.css';
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
-import BecomeStudentButton from '../components/BecomeStudentButton';
-import BecomeTeacherButton from '../components/BecomeTeacherButton';
-import {useAuth} from '../auth/useAuth.js'
+import '../styles/App.css'
+import Footer from '../components/Footer/Footer'
+import Header from '../components/Header/Header'
+import BecomeStudentButton from '../components/BecomeStudentButton'
+import BecomeTeacherButton from '../components/BecomeTeacherButton'
+import {useAuth} from '../auth/useAuth.jsx'
 import Main from './Main'
 
 
@@ -33,4 +33,4 @@ function UserPage() {
         
 }
 
-export default UserPage;
+export default UserPage

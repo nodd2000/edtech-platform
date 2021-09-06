@@ -1,26 +1,27 @@
 import "./Menu.css"
-import React from "react";
-import {useAuth} from '../../../auth/useAuth'
-import { Link } from "react-router-dom";
+import React from "react"
+import { useAuth } from '../../../auth/useAuth.jsx'
+import { Link } from "react-router-dom"
 
 
 function AuthButton() {
-  let auth = useAuth();
+  const { user, signOut } = useAuth()
   
-  return auth.user ? ( 
-      <div className="menu-link base-style" onClick={() => auth.signout()}>log Out</div> 
+  return user ? ( 
+      <div className="menu-link base-style" onClick={() => signOut()}>log Out</div> 
     ) : (
       <Link className="menu-link base-style" to="/login">log In</Link> 
-  );
+  )
 }
 
 
 const Menu = () => {
-  let auth = useAuth();
+
+  const { user } = useAuth()
 
   return (
     <div className="menu">
-      { auth.user ? <a className="menu-point" href='/self'> {auth.user.username}</a> : <div></div> }
+      { user ? <a className="menu-point" href='/self'> {user.username}</a> : <div></div> }
       <div className="menu-point">
           < AuthButton />
       </div>
@@ -28,4 +29,4 @@ const Menu = () => {
   )
 }
 
-export default Menu;
+export default Menu
