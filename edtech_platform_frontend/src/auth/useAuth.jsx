@@ -1,5 +1,5 @@
 import React, { useState, useContext, createContext, useEffect} from "react"
-import axios from 'axios'
+import { fetchUsers, obtainJwtToken, registerUser } from '../api/apiFetching'
 
 const authContext = createContext()
 
@@ -10,7 +10,7 @@ export function AuthProvider ({ children }) {
   const [user, setUser] = useState(null);
 
   const signIn = (username, password) => {
-    axios.post('http://127.0.0.1:8000/auth-jwt/token/', {username: username, password: password})
+    obtainJwtToken(username, password)
     .then(response => {
       saveTokens({
         'username': username,
@@ -37,7 +37,7 @@ export function AuthProvider ({ children }) {
   }
 
   const signUp = (username, password) => {
-    axios.post('http://127.0.0.1:8000/api/users/', {username: username, password: password})
+    registerUser(username, password)
     .then(response => { alert('User created. Please login in') })
     .catch(error => { alert('A user with that username already exists') })
   };
@@ -61,18 +61,13 @@ export function AuthProvider ({ children }) {
     const user_data = getDataFromLocalStorage()
     
     if (user_data) {
-      console.log('useAuth fetching USERS')
-      fetch('http://127.0.0.1:8000/api/users/')
-      .then((response) => {
-        return response.json()
-      })
+      fetchUsers()
       .then((users) => {
         const [ currentUser ] = users.filter(user_ => user_.username == user_data.username)
         setUser({ ...user_data, 'id': currentUser.id })
       })
   }
       
-
     const unsubscribe = ((user) => {
       if (user) {
         setUser(user)

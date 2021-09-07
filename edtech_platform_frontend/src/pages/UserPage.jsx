@@ -11,35 +11,7 @@ import BecomeTeacherButton from '../components/BecomeTeacherButton'
 import CoursesField from '../components/CoursesField'
 import { useAuth } from '../auth/useAuth.jsx'
 import Main from './Main'
-import axios from 'axios'
-
-const queryStudents = ` 
-query {
-  allStudents {
-    id,
-    user {
-      username
-    }
-    courses {
-      id,
-      title
-    }
-  } 
-}`
-
-const queryTeachers = ` 
-query {
-  allTeachers {
-    id,
-    user {
-      username
-    }
-    courses {
-      id,
-      title
-    }
-  } 
-}`
+import { addStudent, addTeacher, getTeachersExt, getStudentsExt } from "../api/apiFetching"
 
 
 function UserPage() {
@@ -48,64 +20,35 @@ function UserPage() {
     const [teacher, setTeacher] = useState()
 
 
-    const submitButtonStudent = () =>{
-        axios.post('http://127.0.0.1:8000/api/students/', 
-        { user: `http://127.0.0.1:8000/api/users/${user.id}/`,
-          courses: [] }
-        )
-        .then((response) => {
-            setUser({...user, isStudent:true})
+    const submitButtonStudent = () => {
+        addStudent(user)
+        .then(() => {
+            setUser({...user, isStudent: true})
         })
       }
 
-    const submitButtonTeacher = () =>{
-        axios.post('http://127.0.0.1:8000/api/teachers/', 
-        { user: `http://127.0.0.1:8000/api/users/${user.id}/`,
-          courses: [] }
-        )
-        .then((response) => {
-            setUser({...user, isTeacher:true})
+    const submitButtonTeacher = () => {
+        addTeacher(user)
+        .then(() => {
+            setUser({...user, isTeacher: true})
         })
       }
 
     useEffect(() => {
         if (user) {
-
-            axios.post('http://127.0.0.1:8000/graphql', 
-            { query: queryTeachers }
-            )
-            .then((response) => {
-              return response.data.data.allTeachers
-            })
-            .then((teachers) => {
-              const [ currentTeacher ] = teachers.filter(teacher_ => teacher_.user.username == user.username)
-              setTeacher(currentTeacher)
-            })
-            .catch( e => { console.log(e)}
-            )
-
-        }
-
-    }, [user])
-
-    useEffect(() => {
-        
-        if (user) {
-          axios.post('http://127.0.0.1:8000/graphql', 
-          { query: queryStudents }
-          )
-          .then((response) => {
-            return response.data.data.allStudents
+          getTeachersExt()
+          .then((teachers) => {
+            const [ currentTeacher ] = teachers.filter(teacher_ => teacher_.user.username == user.username)
+            setTeacher(currentTeacher)
           })
+
+          getStudentsExt()
           .then((students) => {
             const [ currentStudent ] = students.filter(student_ => student_.user.username == user.username)
             setStudent(currentStudent)
           })
-          .catch( e => { console.log(e)}
-          )
         }
-    
-        }, [user])
+    }, [user])
 
 
     if (user) {

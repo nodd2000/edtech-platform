@@ -1,47 +1,39 @@
 
 import React, { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom"
 
-import '../styles/App.css';
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
-import TeacherCard from '../components/TeacherCard';
+import '../styles/App.css'
+import Footer from '../components/Footer/Footer'
+import Header from '../components/Header/Header'
+import TeacherCard from '../components/TeacherCard'
+import { getTeacher, customFetch } from '../api/apiFetching'
+
 
 
 const Teacher = () => {
-    let { id } = useParams();
+  const { id } = useParams();
 
-    const [teacher, setTeacher] = useState({
-        isLoaded: false,
-        course: null
-      });
+  const [teacher, setTeacher] = useState(null);
 
-    useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/teachers/${id}`)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-            setTeacher({
-            isLoaded: true,
-            teacher: data})
-          });
-        
-        }, []);
+  useEffect(() => {
+    getTeacher(id)
+    .then((data) => {
+      customFetch(data.user)
+      .then((user) => {
+        setTeacher({...data, 'username': user.username})
+      })
 
+    })
+    }, [])
 
-    if (!teacher.isLoaded) {
-        return <div>Loading..</div>;
-        }
-        else {
-        return (
-            <div className='body'>
-                <Header/>
-                <TeacherCard id={teacher.teacher.id} bio={teacher.teacher.bio} img_url={teacher.teacher.img_url}/>
-                <Footer/>
-            </div>
-            ); 
-        }
+  return (
+    <div className='body'>
+      <Header/>
+      { teacher? <TeacherCard id={teacher.id} bio={teacher.bio} name={teacher.username} img_url={teacher.img_url}/> 
+      :<>Loading..</> }
+      <Footer/>
+    </div>
+    ); 
 
 }
 

@@ -10,6 +10,7 @@ const TeacherCard = (props) => {
                 <img src={props.img_url}/>
             </a>
             <div className="teacher-card-title">
+                <h4>{props.name}</h4>
                 <h4>{props.bio}</h4>
             </div>
 

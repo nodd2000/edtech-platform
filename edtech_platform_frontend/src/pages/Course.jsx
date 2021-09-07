@@ -1,48 +1,34 @@
 
 import React, { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom"
 
-import '../styles/App.css';
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
-import CourseCard from '../components/CourseCard';
+import '../styles/App.css'
+import Footer from '../components/Footer/Footer'
+import Header from '../components/Header/Header'
+import CourseCard from '../components/CourseCard'
+import { getCourse } from '../api/apiFetching'
 
 
 const Course = () => {
-    let { id } = useParams();
+  const { id } = useParams();
 
-    const [course, setCourse] = useState({
-        isLoaded: false,
-        course: null
-      });
+  const [course, setCourse] = useState(null);
 
-    useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/courses/${id}`)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          setCourse({
-            isLoaded: true,
-            course: data})
-          });
-        
-        }, []);
+  useEffect(() => {
+    getCourse(id)
+    .then((data) => {
+      setCourse(data)
+    })
+    }, [])
 
-
-    if (!course.isLoaded) {
-        return <div>Loading..</div>;
-        }
-        else {
-        return (
-            <div className='body'>
-                <Header/>
-                <CourseCard id={course.course.id} title={course.course.title} description={course.course.description} img_url={course.course.img_url}/>
-                <Footer/>
-            </div>
-            ); 
-        }
-
+  return (
+    <div className='body'>
+      <Header/>
+      {course ? <CourseCard id={course.id} title={course.title} description={course.description} img_url={course.img_url}/> 
+      : <>Loading..</> }
+      <Footer/>
+    </div>
+    )
 }
 
 export default Course;

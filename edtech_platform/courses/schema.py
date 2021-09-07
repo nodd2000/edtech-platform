@@ -15,7 +15,7 @@ class UserType(DjangoObjectType):
 class TeacherType(DjangoObjectType):
     class Meta:
         model = Teacher
-        fields = ("id", "user", "bio", "courses")
+        fields = ("id", "user", "bio", "courses", "img_url")
 
 
 class StudentType(DjangoObjectType):
@@ -27,7 +27,7 @@ class StudentType(DjangoObjectType):
 class CourseType(DjangoObjectType):
     class Meta:
         model = Course
-        fields = ("id", "title", "description",
+        fields = ("id", "title", "description", "img_url",
                   "created_at", "published_at", "edited_at",
                   "teachers", "students")
 

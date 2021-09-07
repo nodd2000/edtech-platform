@@ -1,43 +1,34 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import TeacherCard from "./TeacherCard";
 import '../styles/App.css';
 
 
-function TeachersField() {
-  const [teachers, setTeachers] = useState({
-    isLoaded: false,
-    teachers: []
-  });
-
-  useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/teachers/')
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      setTeachers({
-        isLoaded: true,
-        teachers: data})
-      });
-    }, []);
+function TeachersField( { teachers=[], title='Teachers' } ) {
   
-  if (!teachers.isLoaded) {
-    return <div>Loading..</div>;
-  }
-  else {
-    return (
-      <div className='cards-field'>
-        <div className='cards-field-title'>
-          <h1>Teachers</h1>
-        </div>
-        
-        <div className='cards-field-scroll'>
-          {teachers.teachers.map
-          (teacher => <TeacherCard key={teacher.id} id={teacher.id} bio={teacher.bio} img_url={teacher.img_url}/>)}
-        </div>
+  return (
+    <div className='cards-field'>
+      <div className='cards-field-title'>
+        <h1>{title}</h1>
       </div>
-      ); 
-    }
+      
+      <div className='cards-field-scroll'>
+
+
+        {teachers.length == 0 ? 
+          <>
+          No teachers
+          </> : <>
+            { teachers.map(teacher => 
+            <TeacherCard 
+            key={teacher.id} 
+            id={teacher.id}
+            name={teacher.username} 
+            img_url={teacher.img_url}/>) }
+          </>}
+
+      </div>
+    </div>
+    ); 
   }
 
 export default TeachersField;
