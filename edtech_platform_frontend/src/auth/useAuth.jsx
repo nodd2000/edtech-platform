@@ -58,9 +58,20 @@ export function AuthProvider ({ children }) {
   }
 
   useEffect(() => {
-
-    const data = getDataFromLocalStorage()
-    setUser(data)
+    const user_data = getDataFromLocalStorage()
+    
+    if (user_data) {
+      console.log('useAuth fetching USERS')
+      fetch('http://127.0.0.1:8000/api/users/')
+      .then((response) => {
+        return response.json()
+      })
+      .then((users) => {
+        const [ currentUser ] = users.filter(user_ => user_.username == user_data.username)
+        setUser({ ...user_data, 'id': currentUser.id })
+      })
+  }
+      
 
     const unsubscribe = ((user) => {
       if (user) {
@@ -68,9 +79,9 @@ export function AuthProvider ({ children }) {
       } else {
         setUser(null)
       }
-    });
-    return () => unsubscribe() 
-  }, [])
+    })
+
+    return () => unsubscribe() }, [])
 
   return (
     <authContext.Provider value={{ user, setUser, signIn, signUp, signOut }}>

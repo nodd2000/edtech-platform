@@ -5,7 +5,7 @@ import "../styles/App.css"
 const CourseCard = (props) => {
 
     return (
-        <div className="course-card">
+        <a className="course-card" href={`/courses/${props.id}`} >
             <a className="course-card-image" href={`/courses/${props.id}`}>
                 <img src={props.img_url}/>
             </a>
@@ -14,7 +14,7 @@ const CourseCard = (props) => {
                 <h4>{props.description}</h4>
             </div>
 
-        </div>
+        </a>
     )
 }
 

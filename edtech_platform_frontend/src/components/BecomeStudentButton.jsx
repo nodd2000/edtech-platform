@@ -4,20 +4,15 @@ import "../styles/App.css"
 import Emoji from './Emoji.jsx';
 
 
-const BecomeStudentButton = () => {
-
-  const submitButton = () =>{
-      console.log('become student')
-  }
-
+const BecomeStudentButton = ({ submit }) => {
   return (
-      <div className='button-zone'>
-        <button className='role-button' onClick={submitButton}>
-          <Emoji symbol="🧑‍🎓"/>
-          <br/>
-          Become a student! 
-        </button>
-      </div>
+      <button 
+      className='role-button' 
+      onClick={submit}>
+        <Emoji symbol="🧑‍🎓"/>
+        <br/>
+        Become a student! 
+      </button>
   );
 }
 

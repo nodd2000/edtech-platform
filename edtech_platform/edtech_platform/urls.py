@@ -18,13 +18,15 @@ from django.urls import path, include
 from graphene_django.views import GraphQLView
 from django.conf import settings
 
+from django.views.decorators.csrf import csrf_exempt
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('courses.urls', namespace='courses')),
     path('', include('contacts.urls', namespace='contacts')),
     path('api-auth/', include('rest_framework.urls')),
     path('auth-jwt/', include('jwtauthapp.urls')),
-    path('graphql', GraphQLView.as_view(graphiql=True)),
+    path('graphql', csrf_exempt(GraphQLView.as_view(graphiql=True))),
 ]
 
 if settings.DEBUG:
