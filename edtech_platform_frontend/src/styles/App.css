@@ -164,7 +164,27 @@
 }
 
 .add-course {
-
   font-size: 150px;
+}
 
+.course-page-content {
+  display:inline-block;
+  background-color:gainsboro;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px 0px 1px;
+  border-color:silver;
+  /* padding: 0 20px; */
+}
+
+.course-page-image {
+  width: 400px;
+  height: auto;
+  display: flex;
+
+}
+.course-page-image img {
+  margin: 0 20px 20px;
+  width: 100%;
+  height: auto;
 }

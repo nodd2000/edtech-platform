@@ -28,7 +28,6 @@ function Main() {
         'img_url': teacher.imgUrl,
         'bio': teacher.bio,
         'courses': teacher.courses.length}))
-      console.log(fixedTeachers)
       const filterTeachers = fixedTeachers.filter(teacher => teacher.courses > 0)
 
       setTeachers(filterTeachers)

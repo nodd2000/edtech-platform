@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const queryStudents = ` 
+const queryStudents = ` 
 query {
   allStudents {
     id,
@@ -14,7 +14,7 @@ query {
   } 
 }`
 
-export const queryTeachers = ` 
+const queryTeachers = ` 
 query {
   allTeachers {
     id,
@@ -28,7 +28,7 @@ query {
   } 
 }`
 
-export const queryTeachersSimple = ` 
+const queryTeachersSimple = ` 
 query {
   allTeachers {
     id,
@@ -43,6 +43,25 @@ query {
     }
   } 
 }`
+
+
+const queryCourses = `
+query {
+  allCourses {
+    id,
+    title,
+    description,
+    imgUrl,
+    teachers {
+      id,
+      imgUrl
+      user {
+        id,username
+      }
+    }
+  } 
+}`
+
 
 export const fetchUsers = () => {
   return fetch('http://127.0.0.1:8000/api/users/')
@@ -100,6 +119,14 @@ export const getTeachers = () => {
   }) 
 }
 
+export const getCourses = () => {
+  return axios.post('http://127.0.0.1:8000/graphql', { query: queryCourses } )
+  .then((response) => {
+    return response.data.data.allCourses
+  }) 
+}
+
+
 
 export const obtainJwtToken = (username, password) => {
   return axios.post('http://127.0.0.1:8000/auth-jwt/token/', {username: username, password: password})
@@ -112,7 +139,7 @@ export const registerUser = (username, password) => {
 export const getCourse = (id) => {
   return fetch(`http://127.0.0.1:8000/api/courses/${id}`)
   .then((response) => {
-    return response.json();
+    return response.json()
   })
 }
 
@@ -120,13 +147,13 @@ export const getCourse = (id) => {
 export const getTeacher = (id) => {
   return fetch(`http://127.0.0.1:8000/api/teachers/${id}`)
   .then((response) => {
-    return response.json();
+    return response.json()
   })
 }
 
 export const customFetch = (url) => {
   return fetch(url)
   .then((response) => {
-    return response.json();
+    return response.json()
   })
 }

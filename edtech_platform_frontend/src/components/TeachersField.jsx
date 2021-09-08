@@ -1,8 +1,6 @@
 import React from "react"
-import TeacherCard from "./TeacherCard";
-import '../styles/App.css';
-import { NewCourseButton } from "./NewCourseButton";
-
+import TeacherCard from "./TeacherCard"
+import '../styles/App.css'
 
 function TeachersField( { teachers=[], title='Teachers', add=false } ) {
   
