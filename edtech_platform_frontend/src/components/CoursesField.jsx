@@ -20,7 +20,7 @@ function CoursesField( { courses=[], title='Courses', buttonTitle, buttonHref, a
           key={course.id} 
           id={course.id} 
           title={course.title} 
-          img_url={course.img_url}/>) }
+          imgUrl={course.imgUrl}/>) }
         </>}
 
         { !add ? <></> :

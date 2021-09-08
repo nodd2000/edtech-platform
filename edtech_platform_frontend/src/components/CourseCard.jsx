@@ -7,7 +7,7 @@ const CourseCard = (props) => {
     return (
         <a className="course-card" href={`/courses/${props.id}`} >
             <a className="course-card-image" href={`/courses/${props.id}`}>
-                <img src={props.img_url}/>
+                <img src={props.imgUrl}/>
             </a>
             <div className="course-card-title">
                 <h3>{props.title}</h3>

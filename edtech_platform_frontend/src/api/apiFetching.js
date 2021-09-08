@@ -9,7 +9,8 @@ query {
     }
     courses {
       id,
-      title
+      title,
+      imgUrl
     }
   } 
 }`
@@ -39,7 +40,9 @@ query {
       username
     }
     courses {
-      id
+      id,
+      title,
+      imgUrl
     }
   } 
 }`
@@ -74,6 +77,15 @@ export const fetchCourses = () => {
     return fetch('http://127.0.0.1:8000/api/courses/')
     .then((response) => {
       return response.json()
+    .then((courses) => {
+      return courses.map( (course) => ({
+        'id': course.id,
+        'title': course.title,
+        'description': course.description,
+        'imgUrl': course.img_url,
+        'teachers': course.teachers}))
+    }
+    )
     })
 }
 
@@ -126,8 +138,6 @@ export const getCourses = () => {
   }) 
 }
 
-
-
 export const obtainJwtToken = (username, password) => {
   return axios.post('http://127.0.0.1:8000/auth-jwt/token/', {username: username, password: password})
 }
@@ -138,21 +148,6 @@ export const registerUser = (username, password) => {
 
 export const getCourse = (id) => {
   return fetch(`http://127.0.0.1:8000/api/courses/${id}`)
-  .then((response) => {
-    return response.json()
-  })
-}
-
-
-export const getTeacher = (id) => {
-  return fetch(`http://127.0.0.1:8000/api/teachers/${id}`)
-  .then((response) => {
-    return response.json()
-  })
-}
-
-export const customFetch = (url) => {
-  return fetch(url)
   .then((response) => {
     return response.json()
   })

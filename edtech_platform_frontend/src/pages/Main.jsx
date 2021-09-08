@@ -25,7 +25,7 @@ function Main() {
       const fixedTeachers = teachers.map( (teacher) => ({
         'username': teacher.user.username,
         'id': teacher.id,
-        'img_url': teacher.imgUrl,
+        'imgUrl': teacher.imgUrl,
         'bio': teacher.bio,
         'courses': teacher.courses.length}))
       const filterTeachers = fixedTeachers.filter(teacher => teacher.courses > 0)

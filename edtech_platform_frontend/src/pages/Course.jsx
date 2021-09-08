@@ -22,16 +22,15 @@ const Course = () => {
         'id': course_.id,
         'title': course_.title,
         'description': course_.description,
-        'img_url': course_.imgUrl,
+        'imgUrl': course_.imgUrl,
         'teachers': course_.teachers}))
       const [ currentCourse ] = fixedCourses.filter(course_ => course_.id == id)
 
       const courseTeachers = currentCourse.teachers.map( (teacher) => ({
         'username': teacher.user.username,
         'id': teacher.id,
-        'img_url': teacher.imgUrl}))
+        'imgUrl': teacher.imgUrl}))
         
-      
       setCourse({...currentCourse, 'teachers': courseTeachers})
     })
       }, [])
@@ -40,22 +39,20 @@ const Course = () => {
   return (
     <div className='body'>
       <Header/>
+
       {course ? 
-      <>
       <div className='course-page-content'>
         <h1 style={{margin:'20px'}}>{course.title}</h1>  
         <h3 style={{margin:'20px'}}>{course.description}</h3>
 
         <div className='course-page-image'>
-          <img src={course.img_url}></img>
+          <img src={course.imgUrl}></img>
         </div>
         
         <TeachersField teachers={course.teachers}/>
-
       </div>
-
-      </>
       : <>Loading..</> }
+
       <Footer/>
     </div>
     )

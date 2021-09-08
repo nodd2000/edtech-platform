@@ -17,7 +17,7 @@ function Teachers() {
       const fixedTeachers = teachers.map( (teacher) => ({
         'username': teacher.user.username,
         'id': teacher.id,
-        'img_url': teacher.imgUrl,
+        'imgUrl': teacher.imgUrl,
         'bio': teacher.bio,
         'courses': teacher.courses.length}))
       console.log(fixedTeachers)

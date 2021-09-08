@@ -19,7 +19,7 @@ function TeachersField( { teachers=[], title='Teachers', add=false } ) {
             key={teacher.id} 
             id={teacher.id}
             name={teacher.username} 
-            img_url={teacher.img_url}/>) }
+            imgUrl={teacher.imgUrl}/>) }
           </>}
 
       </div>
