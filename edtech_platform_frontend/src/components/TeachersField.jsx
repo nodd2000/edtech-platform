@@ -1,9 +1,10 @@
 import React from "react"
 import TeacherCard from "./TeacherCard";
 import '../styles/App.css';
+import { NewCourseButton } from "./NewCourseButton";
 
 
-function TeachersField( { teachers=[], title='Teachers' } ) {
+function TeachersField( { teachers=[], title='Teachers', add=false } ) {
   
   return (
     <div className='cards-field'>
@@ -13,11 +14,8 @@ function TeachersField( { teachers=[], title='Teachers' } ) {
       
       <div className='cards-field-scroll'>
 
-
-        {teachers.length == 0 ? 
+        {teachers.length == 0 ? <> </> : 
           <>
-          No teachers
-          </> : <>
             { teachers.map(teacher => 
             <TeacherCard 
             key={teacher.id} 

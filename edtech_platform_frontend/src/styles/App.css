@@ -140,3 +140,31 @@
   /* height: 100%; */
   background-color:rgb(238, 235, 235);
 }
+
+
+.add-course-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  width: 300px;
+  margin: 20px;
+  align-items:center;
+  justify-content:center;
+  /* border-radius: 6px; */
+  /* background-color: salmon; */
+  /* background-color: gainsboro; */
+  box-shadow: 0 0 10px rgba(102, 94, 94, 0.4);
+  /* transition: transform .3s; */
+  /* background-color: white; */
+}
+
+.add-course-card:hover {
+  transform: scale(1.03);
+  transition: transform .3s;
+}
+
+.add-course {
+
+  font-size: 150px;
+
+}

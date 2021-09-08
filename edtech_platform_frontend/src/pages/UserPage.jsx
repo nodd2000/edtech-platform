@@ -11,6 +11,7 @@ import BecomeTeacherButton from '../components/BecomeTeacherButton'
 import CoursesField from '../components/CoursesField'
 import { useAuth } from '../auth/useAuth.jsx'
 import Main from './Main'
+import { FaPlusCircle } from "react-icons/fa"
 import { addStudent, addTeacher, getTeachersExt, getStudentsExt } from "../api/apiFetching"
 
 
@@ -55,17 +56,29 @@ function UserPage() {
         return (
             <div className='body'>
                 <Header/>
-
                 <div>
-                    { student ? <CoursesField title='You learn:' courses={student.courses} /> : <></> }
-                    { teacher ? <CoursesField title='You teach:' courses={teacher.courses} /> : <></> }
+                    { student ? 
+                    <CoursesField
+                    title='You learn:' 
+                    buttonTitle='Choose a course to learn'
+                    buttonHref='/courses'
+                    courses={student.courses} 
+                    add={true}/> : <></> }
+
+                    { teacher ? 
+                    <CoursesField 
+                    title='You teach:'
+                    buttonTitle='Create new course'
+                    buttonHref='/'
+                    courses={teacher.courses} 
+                    add={true}/> : <></> }
+
                 </div>
 
                 <div className='button-zone'>
                     { student ?  <div></div>: <BecomeStudentButton submit={user => submitButtonStudent(user)}/> }
                     { teacher ?  <div></div>: <BecomeTeacherButton submit={user => submitButtonTeacher(user)}/> }
                 </div>
-
                 <Footer/>
             </div>
         )

@@ -1,8 +1,9 @@
 import React from "react"
-import CourseCard from "./CourseCard";
-import '../styles/App.css';
+import CourseCard from "./CourseCard"
+import '../styles/App.css'
+import { NewCourseButton } from "./NewCourseButton";
 
-function CoursesField( { courses=[], title='Courses' } ) {
+function CoursesField( { courses=[], title='Courses', buttonTitle, buttonHref, add=false } ) {
 
   return (
     <div className='cards-field'>
@@ -12,10 +13,8 @@ function CoursesField( { courses=[], title='Courses' } ) {
       
       <div className='cards-field-scroll'>
 
-        {courses.length == 0 ? 
-        <>
-        No courses
-        </> : <>
+        {courses.length == 0 ? <> </> :
+         <>
           { courses.map(course => 
           <CourseCard 
           key={course.id} 
@@ -23,6 +22,10 @@ function CoursesField( { courses=[], title='Courses' } ) {
           title={course.title} 
           img_url={course.img_url}/>) }
         </>}
+
+        { !add ? <></> :
+            <NewCourseButton title={buttonTitle} href={buttonHref}/>
+          }
 
 
       </div>
