@@ -7,14 +7,17 @@ import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import TeachersField from '../components/TeachersField'
 import { getCourses } from '../api/apiFetching'
-
+import { useAuth } from '../auth/useAuth'
 
 const Course = () => {
-  const { id } = useParams();
+  const { id } = useParams()
+  const { user } = useAuth()
+  const [ isSignedUp, setSignedUp ] = useState(false)
 
-  const [course, setCourse] = useState(null);
+  const [course, setCourse] = useState(null)
 
   useEffect(() => {
+    
 
     getCourses()
     .then((courses) => {
@@ -23,17 +26,21 @@ const Course = () => {
         'title': course_.title,
         'description': course_.description,
         'imgUrl': course_.imgUrl,
-        'teachers': course_.teachers}))
+        'teachers': course_.teachers,
+        'students': course_.students}))
       const [ currentCourse ] = fixedCourses.filter(course_ => course_.id == id)
 
       const courseTeachers = currentCourse.teachers.map( (teacher) => ({
         'username': teacher.user.username,
         'id': teacher.id,
         'imgUrl': teacher.imgUrl}))
-        
+      
+      if (user) {
+        setSignedUp(currentCourse.students.filter(student => student.user.username == user.username).length > 0) 
+      }
       setCourse({...currentCourse, 'teachers': courseTeachers})
     })
-      }, [])
+      }, [user])
   
   
   return (
@@ -42,7 +49,13 @@ const Course = () => {
 
       {course ? 
       <div className='course-page-content'>
-        <h1 style={{margin:'20px'}}>{course.title}</h1>  
+        <div className='course-title-line'>
+          <h1 style={{margin:'20px'}}>{course.title}</h1>
+          {isSignedUp? 
+          <button>Sign out</button> :
+          <button disabled={!user}>Sign up</button>
+          } 
+        </div>
         <h3 style={{margin:'20px'}}>{course.description}</h3>
 
         <div className='course-page-image'>

@@ -19,20 +19,6 @@ const queryTeachers = `
 query {
   allTeachers {
     id,
-    user {
-      username
-    }
-    courses {
-      id,
-      title
-    }
-  } 
-}`
-
-const queryTeachersSimple = ` 
-query {
-  allTeachers {
-    id,
     bio,
     imgUrl,
     user {
@@ -60,6 +46,11 @@ query {
       imgUrl
       user {
         id,username
+      }
+    }
+    students {
+      user {
+        id, username
       }
     }
   } 
@@ -110,13 +101,6 @@ export const addStudent = (user) => {
   )
 }
 
-export const getTeachersExt = () => {
-  return axios.post('http://127.0.0.1:8000/graphql', { query: queryTeachers } )
-  .then((response) => {
-    return response.data.data.allTeachers
-  })
-}
-
 export const getStudentsExt = () => {
   return axios.post('http://127.0.0.1:8000/graphql', { query: queryStudents } )
   .then((response) => {
@@ -125,7 +109,7 @@ export const getStudentsExt = () => {
 }
 
 export const getTeachers = () => {
-  return axios.post('http://127.0.0.1:8000/graphql', { query: queryTeachersSimple } )
+  return axios.post('http://127.0.0.1:8000/graphql', { query: queryTeachers } )
   .then((response) => {
     return response.data.data.allTeachers
   }) 

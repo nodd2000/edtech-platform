@@ -181,10 +181,16 @@
   width: 400px;
   height: auto;
   display: flex;
-
 }
 .course-page-image img {
   margin: 0 20px 20px;
   width: 100%;
   height: auto;
+}
+
+.course-title-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
 }

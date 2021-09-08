@@ -11,8 +11,9 @@ import BecomeTeacherButton from '../components/BecomeTeacherButton'
 import CoursesField from '../components/CoursesField'
 import { useAuth } from '../auth/useAuth.jsx'
 import Main from './Main'
-import { FaPlusCircle } from "react-icons/fa"
-import { addStudent, addTeacher, getTeachersExt, getStudentsExt } from "../api/apiFetching"
+
+
+import { addStudent, addTeacher, getTeachers, getStudentsExt } from "../api/apiFetching"
 
 
 function UserPage() {
@@ -37,8 +38,8 @@ function UserPage() {
 
     useEffect(() => {
         if (user) {
-          getTeachersExt()
-          .then((teachers) => {
+            getTeachers()
+            .then((teachers) => {
             const [ currentTeacher ] = teachers.filter(teacher_ => teacher_.user.username == user.username)
             setTeacher(currentTeacher)
           })
