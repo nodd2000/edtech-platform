@@ -1,21 +1,27 @@
 
 import React, { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 import '../styles/App.css'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import TeachersField from '../components/TeachersField'
-import { getCourses, getStudentsExt, changeCourses} from '../api/apiFetching'
+import { getCourses, getStudentsExt, changeCourses, getTeachers, deleteCourse } from '../api/apiFetching'
 import { useAuth } from '../auth/useAuth'
 
 const Course = () => {
   const { id } = useParams()
   const { user } = useAuth()
   const [student, setStudent] = useState()
+  const [teacher, setTeacher] = useState()
+  const [ isCourseTeacher, setCourseTeacher ] = useState(false)
   const [ isSignedUp, setSignedUp ] = useState(false)
 
   const [course, setCourse] = useState(null)
+
+  const submitDelete = () => {
+    console.log('Delete!')
+  }
 
   const submitSignOut = () => {
     changeCourses(
@@ -63,6 +69,15 @@ const Course = () => {
           setStudent(currentStudent)
         })
 
+        getTeachers()
+        .then((teachers) => {
+        const [ currentTeacher ] = teachers.filter(teacher_ => teacher_.user.username == user.username )
+        setTeacher(currentTeacher)
+      
+        setCourseTeacher(currentTeacher.courses.filter(course_ => course_.id == id).length > 0)
+
+        })
+
       }
       setCourse({...currentCourse, 'teachers': courseTeachers})
     })
@@ -80,6 +95,13 @@ const Course = () => {
           {isSignedUp? 
           <button onClick={submitSignOut} >Sign out</button> :
           <button onClick={submitSignUp} disabled={ !user | !student }>Sign up</button>
+          }
+          {isCourseTeacher?
+          <>
+          <button onClick={submitDelete}>Delete</button>
+          <Link to={`/edit_course/${id}`}>Edit</Link>
+          </>:
+          <></>
           } 
         </div>
         <h3 style={{margin:'20px'}}>{course.description}</h3>

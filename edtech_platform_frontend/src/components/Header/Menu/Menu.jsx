@@ -21,7 +21,7 @@ const Menu = () => {
 
   return (
     <div className="menu">
-      { user ? <a className="menu-point" href='/self'> {user.username}</a> : <div></div> }
+      { user ? <Link className="menu-point" to='/self'> {user.username}</Link> : <div></div> }
       <div className="menu-point">
           < AuthButton />
       </div>

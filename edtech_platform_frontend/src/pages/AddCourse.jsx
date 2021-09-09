@@ -4,7 +4,7 @@ import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import CoursesField from '../components/CoursesField'
 import TeachersField from '../components/TeachersField'
-import { fetchCourses, getTeachers } from '../api/apiFetching'
+import { addCourse } from '../api/apiFetching'
 
 function AddCourse() {
     

@@ -1,20 +1,21 @@
 import React from "react"
+import { Link } from "react-router-dom";
 import "../styles/App.css"
 
 
 const CourseCard = (props) => {
 
     return (
-        <a className="course-card" href={`/courses/${props.id}`} >
-            <a className="course-card-image" href={`/courses/${props.id}`}>
+        <Link className="course-card" to={`/courses/${props.id}`} >
+            <div className="course-card-image">
                 <img src={props.imgUrl}/>
-            </a>
+            </div>
             <div className="course-card-title">
                 <h3>{props.title}</h3>
                 <h4>{props.description}</h4>
             </div>
 
-        </a>
+        </Link>
     )
 }
 
