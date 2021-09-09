@@ -9,6 +9,8 @@ import Teacher from '../pages/Teacher'
 import UserPage from '../pages/UserPage'
 import AddCourse from '../pages/AddCourse'
 import EditCourse from '../pages/EditCourse'
+import About from '../pages/About'
+import Contacts from '../pages/Contacts'
 
 
 export const routes = [
@@ -22,4 +24,6 @@ export const routes = [
     {path: '/self', component: UserPage},
     {path: '/add_course', component: AddCourse},
     {path: '/edit_course/:id', component: EditCourse},
+    {path: '/about', component: About},
+    {path: '/contacts', component: Contacts},
 ]

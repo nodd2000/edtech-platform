@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
 
 import '../styles/App.css'
-import Footer from '../components/Footer/Footer'
+import Footer from '../components/Footer'
 import Header from '../components/Header/Header'
 import CoursesField from '../components/CoursesField'
 import { getTeachers } from '../api/apiFetching'

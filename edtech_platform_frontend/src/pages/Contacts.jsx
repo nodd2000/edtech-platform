@@ -3,28 +3,26 @@ import React, { useEffect, useState } from "react"
 import Footer from '../components/Footer'
 import Header from '../components/Header/Header'
 import CoursesField from '../components/CoursesField'
-import { fetchCourses } from '../api/apiFetching'
+import TeachersField from '../components/TeachersField'
+import { fetchCourses, getTeachers } from '../api/apiFetching'
 
-
-
-function Courses() {
-  const [courses, setCourses] = useState([])
+function Contacts() {
 
   useEffect(() => {
-    fetchCourses()
-    .then((data) => {
-      setCourses(data)
-    })
+
     }, [])
-
-
+    
   return (
     <div className='body'>
       <Header/>
-      <CoursesField courses={courses}/>
+      <div className='course-page-content'>
+      <h1 style={{margin:'20px'}}>Contacts</h1>
+
+      </div>
+      
       <Footer/>
     </div>
   )
 }
 
-export default Courses;
+export default Contacts

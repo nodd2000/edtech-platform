@@ -1,3 +1,32 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(201, 197, 197);
+  min-height: 70px;
+  margin-top: auto; 
+}
+
+.footer span {
+  display: block;
+  color: black;
+  margin: 10px;
+}
+
+.footer-link {
+  color: black;
+  margin: 0 5px;
+}
+
+.footer-link:hover {
+  box-shadow: inset 0 0 50px #bee;
+}
+
+.about-message-box {
+  max-width: 800px;
+}
+
 .body {
   margin: 0;
   height: 100vh;

@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom"
 import React, { useEffect, useState } from "react"
 
 import '../styles/App.css'
-import Footer from '../components/Footer/Footer'
+import Footer from '../components/Footer'
 import Header from '../components/Header/Header'
 import BecomeStudentButton from '../components/BecomeStudentButton'
 import BecomeTeacherButton from '../components/BecomeTeacherButton'

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from "react-router-dom"
 
 import '../styles/App.css'
-import Footer from '../components/Footer/Footer'
+import Footer from '../components/Footer'
 import Header from '../components/Header/Header'
 import TeachersField from '../components/TeachersField'
 import { getCourses, getStudentsExt, changeCourses, getTeachers, deleteCourse } from '../api/apiFetching'

@@ -1,6 +1,6 @@
 import '../styles/App.css'
 import React, { useEffect, useState } from "react"
-import Footer from '../components/Footer/Footer'
+import Footer from '../components/Footer'
 import Header from '../components/Header/Header'
 import { editCourse, getTeachers, getCourses} from '../api/apiFetching'
 import { useInput } from '../hooks/useInput'
