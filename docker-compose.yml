@@ -19,3 +19,12 @@ services:
       - ./edtech_platform:/var/app/edtech_platform
     ports: 
       - 8000:8000
+    depends_on: 
+      - redis_service
+  
+  redis_service:
+    build: 
+      context: .
+      dockerfile: ./redis/Dockerfile
+    ports: 
+      - 6379:6379

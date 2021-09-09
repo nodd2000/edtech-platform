@@ -7,9 +7,11 @@ WORKDIR /var/app
 COPY edtech_platform/requirements.txt ./
 RUN pip install -r requirements.txt
 
-# COPY edtech_platform ./
-
-WORKDIR /var/app/edtech_platform
+COPY edtech_platform/entrypoint.sh ./
 
 EXPOSE 8000
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+RUN chmod a+x entrypoint.sh
+
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+ENTRYPOINT [ "./entrypoint.sh" ]

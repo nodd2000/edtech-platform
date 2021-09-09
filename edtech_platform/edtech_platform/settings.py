@@ -157,7 +157,7 @@ EMAIL_FILE_PATH = 'tmp/app-messages'
 
 RQ_QUEUES = {
     'default': {
-        'HOST': 'localhost',
+        'HOST': 'redis_service',
         'PORT': 6379,
         'DEFAULT_TIMEOUT': 360,
     },
