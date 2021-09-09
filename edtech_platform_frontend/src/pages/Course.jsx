@@ -97,7 +97,7 @@ const Course = () => {
     <div className='body'>
       <Header/>
 
-      {course ? 
+      {course && user ? 
       <div className='course-page-content'>
         <div className='course-title-line'>
           <h1 style={{margin:'20px'}}>{course.title}</h1>
