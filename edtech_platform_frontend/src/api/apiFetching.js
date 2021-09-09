@@ -149,3 +149,37 @@ export const changeCourses = (userId, studentId, courses) => {
   })
   
 }
+
+export const addCourse = (title, description, imgUrl, teacherId) => {
+  return axios.post(`http://127.0.0.1:8000/api/courses/`,
+  {
+    title: title,
+    description: description,
+    img_url: imgUrl,
+    teachers: [`http://127.0.0.1:8000/api/teachers/${teacherId}/`]
+   } )
+ .then((response) => {
+   return response
+ })
+}
+
+export const deleteCourse = (id) => {
+  return axios.delete(`http://127.0.0.1:8000/api/courses/${id}/`)
+ .then((response) => {
+   return response
+ })  
+}
+
+export const editCourse = (id, title, description, imgUrl, teachers) => {
+  return axios.put(`http://127.0.0.1:8000/api/courses/${id}/`,
+  {
+    title: title,
+    description: description,
+    img_url: imgUrl,
+    teachers: teachers.map( teacher => `http://127.0.0.1:8000/api/teachers/${teacher.id}/` )
+   } )
+ .then((response) => {
+   return response
+ })
+
+}

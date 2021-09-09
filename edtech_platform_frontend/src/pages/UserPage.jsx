@@ -70,7 +70,7 @@ function UserPage() {
                     <CoursesField 
                     title='You teach:'
                     buttonTitle='Create new course'
-                    buttonHref='/'
+                    buttonHref='/add_course'
                     courses={teacher.courses} 
                     add={true}/> : <></> }
 
