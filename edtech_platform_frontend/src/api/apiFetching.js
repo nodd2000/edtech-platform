@@ -136,3 +136,16 @@ export const getCourse = (id) => {
     return response.json()
   })
 }
+
+
+export const changeCourses = (userId, studentId, courses) => {
+  return axios.put(`http://127.0.0.1:8000/api/students/${studentId}/`,
+   {
+     user: `http://127.0.0.1:8000/api/users/${userId}/`,
+     courses: courses.map( course => `http://127.0.0.1:8000/api/courses/${course.id}/` )
+    } )
+  .then((response) => {
+    return response
+  })
+  
+}

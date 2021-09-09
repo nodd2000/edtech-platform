@@ -6,18 +6,37 @@ import '../styles/App.css'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import TeachersField from '../components/TeachersField'
-import { getCourses } from '../api/apiFetching'
+import { getCourses, getStudentsExt, changeCourses} from '../api/apiFetching'
 import { useAuth } from '../auth/useAuth'
 
 const Course = () => {
   const { id } = useParams()
   const { user } = useAuth()
+  const [student, setStudent] = useState()
   const [ isSignedUp, setSignedUp ] = useState(false)
 
   const [course, setCourse] = useState(null)
 
+  const submitSignOut = () => {
+    changeCourses(
+      user.id,
+      student.id,
+      student.courses.filter(course_ => course_.id != id)
+      )
+    .then(() => setSignedUp(false))
+  }
+
+  const submitSignUp = () => {
+    changeCourses(
+      user.id,
+      student.id,
+      student.courses.concat( {id: id} )
+      )
+    .then(() => setSignedUp(true))
+  }
+
   useEffect(() => {
-    
+
 
     getCourses()
     .then((courses) => {
@@ -36,7 +55,14 @@ const Course = () => {
         'imgUrl': teacher.imgUrl}))
       
       if (user) {
-        setSignedUp(currentCourse.students.filter(student => student.user.username == user.username).length > 0) 
+        setSignedUp(currentCourse.students.filter(student => student.user.username == user.username).length > 0)
+
+        getStudentsExt()
+        .then((students) => {
+          const [ currentStudent ] = students.filter(student_ => student_.user.username == user.username)
+          setStudent(currentStudent)
+        })
+
       }
       setCourse({...currentCourse, 'teachers': courseTeachers})
     })
@@ -52,8 +78,8 @@ const Course = () => {
         <div className='course-title-line'>
           <h1 style={{margin:'20px'}}>{course.title}</h1>
           {isSignedUp? 
-          <button>Sign out</button> :
-          <button disabled={!user}>Sign up</button>
+          <button onClick={submitSignOut} >Sign out</button> :
+          <button onClick={submitSignUp} disabled={ !user | !student }>Sign up</button>
           } 
         </div>
         <h3 style={{margin:'20px'}}>{course.description}</h3>
