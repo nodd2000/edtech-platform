@@ -192,5 +192,13 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+}
 
+.course-edit-form {
+  display: flex;
+}
+
+.from-element {
+  display: block;
+  margin: 10px 0
 }

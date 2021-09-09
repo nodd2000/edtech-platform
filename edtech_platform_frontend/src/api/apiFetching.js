@@ -49,6 +49,7 @@ query {
       }
     }
     students {
+      id,
       user {
         id, username
       }
@@ -156,7 +157,8 @@ export const addCourse = (title, description, imgUrl, teacherId) => {
     title: title,
     description: description,
     img_url: imgUrl,
-    teachers: [`http://127.0.0.1:8000/api/teachers/${teacherId}/`]
+    teachers: [`http://127.0.0.1:8000/api/teachers/${teacherId}/`],
+    students: []
    } )
  .then((response) => {
    return response
@@ -170,16 +172,16 @@ export const deleteCourse = (id) => {
  })  
 }
 
-export const editCourse = (id, title, description, imgUrl, teachers) => {
+export const editCourse = (id, title, description, imgUrl, teachers, students) => {
   return axios.put(`http://127.0.0.1:8000/api/courses/${id}/`,
   {
     title: title,
     description: description,
     img_url: imgUrl,
-    teachers: teachers.map( teacher => `http://127.0.0.1:8000/api/teachers/${teacher.id}/` )
+    teachers: teachers.map( teacher => `http://127.0.0.1:8000/api/teachers/${teacher.id}/` ),
+    students: students.map( student => `http://127.0.0.1:8000/api/students/${student.id}/` )
    } )
  .then((response) => {
    return response
  })
-
 }

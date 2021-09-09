@@ -8,6 +8,8 @@ import Header from '../components/Header/Header'
 import TeachersField from '../components/TeachersField'
 import { getCourses, getStudentsExt, changeCourses, getTeachers, deleteCourse } from '../api/apiFetching'
 import { useAuth } from '../auth/useAuth'
+import { Redirect } from 'react-router-dom'
+
 
 const Course = () => {
   const { id } = useParams()
@@ -17,10 +19,14 @@ const Course = () => {
   const [ isCourseTeacher, setCourseTeacher ] = useState(false)
   const [ isSignedUp, setSignedUp ] = useState(false)
 
+  const [isRedirect, setRedirect] = useState(false)
+
+
   const [course, setCourse] = useState(null)
 
   const submitDelete = () => {
-    console.log('Delete!')
+    deleteCourse(id)
+    setRedirect(true)
   }
 
   const submitSignOut = () => {
@@ -83,7 +89,10 @@ const Course = () => {
     })
       }, [user])
   
-  
+    if (isRedirect) {
+        return <Redirect to='/' />
+    }
+
   return (
     <div className='body'>
       <Header/>
