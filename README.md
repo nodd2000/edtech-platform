@@ -1,7 +1,11 @@
-###### Запуск в docker:
+### Запуск через docker-compose: 
+###### build & up:
 `docker-compose build`
 
 `docker-compose up`
+
+###### Заходим в docker-контейнер с backend:
+`docker-compose exec back bash`
 
 ###### Делаем миграции и добавляем данные в docker-контейнере:
 `python manage.py migrate`
@@ -9,43 +13,19 @@
 `python manage.py loaddata dump.json`
 
 
-###### Установка redis:
-`apt install redis`
 
-###### Установка venv:
-`python3 -m venv venv`
-
-`source venv/bin/activate`
-
-###### Установка зависимостей:
-`pip install -r requirements.txt`
-
-`cd edtech_platform`
-
-###### Миграция БД:
-`python manage.py migrate`
-
-###### Загрузка тестовых данных:
-`python manage.py loaddata dump.json`
-
-###### Запуск веб-сервера:
-`python manage.py runserver`
-
-###### Запуск rqworker:
-`python manage.py rqworker`
-
-###### Аутентификация, авторизация и система прав
+### Аутентификация, авторизация и система прав
 Аутентификация и авторизация только по токену
 
 `/auth-jwt/token/` - получение пары токенов. POST запрос с user/password
 
 `/auth-jwt/token/refresh/` - обновление access-токена. POST запрос с refresh-токеном
 
-###### Система прав: 
+### Система прав: 
 Всё API могут просматривать только аутентифицированные пользователи, неаутентифицированные не видят ничего, даже api root.
 Редактировать, удалять, добавлять может только админ-пользователь.
 
-###### GraphQL:
+### GraphQL:
 
 `/graphql` - адрес с GraphQL
 
@@ -106,5 +86,5 @@ allCourses {
 }
 ```
 
-###### Оптимизация:
+### Оптимизация:
 [Отчет по оптимизации](https://docs.google.com/spreadsheets/d/1jUT0T2rmiO9Sc0PVIR0JKyjeqagjxrwECPhk_57q-po/edit?usp=sharing)
