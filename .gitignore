@@ -5,3 +5,5 @@ edtech_platform/db.sqlite3
 edtech_platform/tmp
 edtech_platform_frontend/node_modules
 package-lock.json
+.idea
+venv

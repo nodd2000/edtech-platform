@@ -8,8 +8,6 @@ from .permissions import IsAuthenticatedAndReadOnly
 from rest_framework.permissions import IsAuthenticated
 from .serializers import TeacherSerializer, StudentSerializer, CourseSerializer, UserSerializer
 from rest_framework.routers import APIRootView
-
-
 class CustomAPIRootView(APIRootView):
     permission_classes = [IsAuthenticated]
 

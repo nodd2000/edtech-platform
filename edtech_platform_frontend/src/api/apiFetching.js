@@ -185,3 +185,10 @@ export const editCourse = (id, title, description, imgUrl, teachers, students) =
    return response
  })
 }
+
+export const sendContact = (data) => {
+  return axios.post('http://127.0.0.1:8000/contacts/', data)
+  .then((response) => {
+    return response
+  })
+}

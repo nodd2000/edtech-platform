@@ -23,6 +23,7 @@ router.register("courses", CourseViewSet)
 urlpatterns = [
     path('', views.CoursesList.as_view(), name='index'),
     path('api/', include(router.urls)),
+    # path('api/contacts/', ContactView.as_view(), name='contacts'),
 
     path('about/', TemplateView.as_view(template_name='courses/about.html'), name='about'),
 
